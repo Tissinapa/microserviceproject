@@ -4,7 +4,7 @@ const port = 5000
 let mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 
-//const Game = require("../movies/models/Movie")
+const Game = require("../games/models/Game")
 
 mongoose.set('strictQuery', true)
 
@@ -18,18 +18,18 @@ db.on("error", console.error.bind(console, "MongoDB connection error"))
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-app.get("/movie", (req, res)=>{
-    res.send("Movies")
+app.get("/game", (req, res)=>{
+    res.send("Games")
 }) 
-app.post("/movie/add", (req,res)=>{
+app.post("/game/add", (req,res)=>{
     
-    Movie.create({
+    Game.create({
         name: req.body.name,
-        format: req.body.format
+        platform: req.body.platform
     },
     (err, ok)=>{
         if(err)throw err;
-        return res.send("Movie added")
+        return res.send("Game added")
     })
     
 })
