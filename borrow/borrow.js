@@ -21,28 +21,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/borrow", (req, res)=>{
     res.send("borrow")
 }) 
-app.post("/borrow/movie", (req,res)=>{
+app.get("/borrow/movie", (req,res)=>{
     
-/*     Movie.create({
-        name: req.body.name,
-        format: req.body.format
-    },
-    (err, ok)=>{
-        if(err)throw err;
-        return res.send("Movie added")
-    }) */
-    
+    res.send("borrow movie")
 })
-app.post("/borrow/game", (req,res)=>{
+app.get("/borrow/game", (req,res)=>{
     
-/*     Movie.create({
-        name: req.body.name,
-        format: req.body.format
-    },
-    (err, ok)=>{
-        if(err)throw err;
-        return res.send("Movie added")
-    }) */
+    res.send("borrow game")
     
 })
 

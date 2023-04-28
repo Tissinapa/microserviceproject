@@ -1,20 +1,20 @@
 const express = require("express")
 const app = express()
 const port = process.env.PORT || 5001
-let mongoose = require("mongoose")
+const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
-const Movie = require("../movies/models/Movie")
+const Movie = require("../movies/models/Movie.js")
 
 const Game = require("../games/models/Game")
 
-let MongoClient = require("mongodb").MongoClient
-let url = "mongodb://localhost:27017/movieservice"
-//const List = require("../movies/models/Movie")
 
- mongoose.set('strictQuery', true) 
+mongoose.set('strictQuery', true) 
 
-const mongoDB = "mongodb://localhost:27017/movieservice"
-mongoose.connect(mongoDB)
+const movieDB = "mongodb://localhost:27017/movieservice"
+//const gameDB = "mongodb://localhost:27017/gameservice"
+mongoose.createConnection(movieDB)
+//mongoose.createConnection(gameDB)
+
 mongoose.Promise = Promise
 
 const db = mongoose.connection
@@ -36,7 +36,7 @@ app.get("/list/all", (req,res)=>{
             res.json(data)
         }
     }) 
-    console.log("ei toimi")
+    
 /*     Game.find((err,data)=>{
         if(err){
             console.log(err)
@@ -45,6 +45,7 @@ app.get("/list/all", (req,res)=>{
         }
     }) */
 }) 
+
 
 
 app.listen(port, ()=>{
