@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 let mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 
@@ -32,6 +32,16 @@ app.post("/movie/add", (req,res)=>{
         return res.send("Movie added")
     })
     
+})
+app.get("/movie/all", (req,res)=>{
+    
+    Movie.find((err,data)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.json(data)
+        }
+    })
 })
 
 app.listen(port, ()=>{
