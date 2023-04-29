@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
-const port = process.env.PORT || 5000
+//const port = process.env.PORT || 5001
+const port = 5001
 let mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 
@@ -16,6 +17,7 @@ const db = mongoose.connection
 db.on("error", console.error.bind(console, "MongoDB connection error"))
 
 app.use(bodyParser.json()); 
+app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get("/movie", (req, res)=>{
@@ -39,7 +41,7 @@ app.get("/movie/all", (req,res)=>{
         if(err){
             console.log(err)
         }else{
-            res.json(data)
+            res.send(data)
         }
     })
 })

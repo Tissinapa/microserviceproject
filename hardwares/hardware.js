@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = process.env.PORT || 5002
+const port = process.env.PORT || 5003
 let mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 
@@ -18,10 +18,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error"))
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-app.get("/Hardware", (req, res)=>{
+app.get("/hardware", (req, res)=>{
     res.send("Hardware")
 }) 
-app.post("/Hardware/add", (req,res)=>{
+app.post("/hardware/add", (req,res)=>{
     
     Hardware.create({
         device: req.body.device
