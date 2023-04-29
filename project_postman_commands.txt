@@ -1,0 +1,54 @@
+Movies
+
+POST http://localhost:5001/movie/add
+
+{
+    "name": "Titanic",
+    "format": "VHS"
+}
+
+Hardware
+POST http://localhost:5003/hardware/add
+
+{
+    "device": "Xbox"
+}
+
+Games
+POST http://localhost:5004/game/add
+
+{
+    "name": "GTA 1",
+    "platform": "PS1"
+}
+
+Borrow movie
+POST http://localhost:5005/borrow/movie
+{
+    "name": "Terminator"
+}
+return movie
+POST http://localhost:5005/borrow/return/movie
+{
+    "name": "Terminator"
+}
+
+Borrow game
+POST http://localhost:5005/borrow/game
+
+{
+    "name": "GTA 1"
+}
+Return game
+POST http://localhost:5005/borrow/return/game
+{
+    "name": "GTA 1"
+}
+
+
+List
+
+GET http://localhost:5002/list/allgames
+
+
+
