@@ -14,7 +14,7 @@ mongoose.set('strictQuery', true)
 const movieDB = "mongodb://localhost:27017/movieservice"
 //const gameDB = "mongodb://localhost:27017/gameservice"
 mongoose.createConnection(movieDB)
-//mongoose.createConnection(gameDB)
+
 
 mongoose.Promise = Promise
 
@@ -28,22 +28,31 @@ app.get("/list", (req, res)=>{
     res.send("You have nice collection")
     console.log("hello list")
 })
-app.get("/list/all", (req,res)=>{
-    console.log("list/all")
-
-    axios.get("http://localhost:5000/movie/all",
+app.get("/list/allmovies", (req,res)=>{
+    axios.get("http://localhost:5001/movie/all",
     ).then((response)=>{
-        let movieObj = {name: response.data[1].name}
-        //console.log((response.data))
-        //console.log(movieObj)
-        //console.log(response)
-        console.log(movieObj)
-    }).catch(err=>{
-        console.log(err)
+        res.json(response.data)
     })
-    res.send("done")
+    .catch((error)=>{
+        if(error.response.status === 404){
+            res.send("error")
+        }
+    })
 
 }) 
+app.get("/list/allgames",(req,res)=>{
+    axios.get("http://localhost:5004/games/all",
+    ).then((response)=>{
+        res.json(response.data)
+    })
+    .catch((error)=>{
+        if(error.response.status === 404){
+            //console.log("voi rähmä")
+            res.send("error")
+        }
+    })
+    
+})
 
 //http://localhost:5000/movie/all
 

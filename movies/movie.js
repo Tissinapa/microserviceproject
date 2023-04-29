@@ -24,7 +24,6 @@ app.get("/movie", (req, res)=>{
     res.send("Movies")
 }) 
 app.post("/movie/add", (req,res)=>{
-    
     Movie.create({
         name: req.body.name,
         format: req.body.format
@@ -41,7 +40,7 @@ app.get("/movie/all", (req,res)=>{
         if(err){
             console.log(err)
         }else{
-            res.send(data)
+            res.json(data)
         }
     })
 })

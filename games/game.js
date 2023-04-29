@@ -33,6 +33,16 @@ app.post("/game/add", (req,res)=>{
     })
     
 })
+app.get("/game/all", (req,res)=>{
+    
+    Game.find((err,data)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.json(data)
+        }
+    })
+})
 
 app.listen(port, ()=>{
     console.log("listening port: "+port)

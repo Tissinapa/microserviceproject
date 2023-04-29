@@ -22,10 +22,8 @@ app.get("/hardware", (req, res)=>{
     res.send("Hardware")
 }) 
 app.post("/hardware/add", (req,res)=>{
-    
     Hardware.create({
         device: req.body.device
-    
     },
     (err, ok)=>{
         if(err)throw err;
