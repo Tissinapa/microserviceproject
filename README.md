@@ -33,6 +33,8 @@ In each terminal open one sub folder
 
 add this command in terminal in each sub folder
 
+**npm init**
+
 **npm i mongodb mongoose@6.10.0 express body-parser express-http-proxy http-proxy-middleware nodemon axios**
 
 ### =========== separate file for postman commands =========== ###
