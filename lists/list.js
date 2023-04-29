@@ -35,7 +35,7 @@ app.get("/list/allmovies", (req,res)=>{
     })
     .catch((error)=>{
         if(error.response.status === 404){
-            res.send("error")
+            res.send("Error, empty")
         }
     })
 
@@ -47,14 +47,14 @@ app.get("/list/allgames",(req,res)=>{
     })
     .catch((error)=>{
         if(error.response.status === 404){
-            //console.log("voi rähmä")
-            res.send("error")
+            
+            res.send("Error, empty")
         }
     })
     
 })
 
-//http://localhost:5000/movie/all
+
 
 app.listen(port, ()=>{
     console.log("listening port: "+port)

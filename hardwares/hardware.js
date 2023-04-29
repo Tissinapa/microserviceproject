@@ -26,8 +26,12 @@ app.post("/hardware/add", (req,res)=>{
         device: req.body.device
     },
     (err, ok)=>{
-        if(err)throw err;
-        return res.send("Hardware added")
+        if(err){
+            res.send("Error, input device name...")
+        }else{
+            return res.send("Hardware added")
+        }
+            
     })
     
 })

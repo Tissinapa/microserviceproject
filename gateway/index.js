@@ -9,12 +9,11 @@ app.use(cors())
 app.use(express.json())
 
 
-
-/* app.use("/movie", proxy("http://localhost:5001"))
+app.use("/movie", proxy("http://localhost:5001"))
 app.use("/", proxy("http://localhost:5002"))//List
 app.use("/hardware", proxy("http://localhost:5003"))
 app.use("/game", proxy("http://localhost:5004"))
-app.use("/borrow", proxy("http://localhost:5005")) */
+app.use("/borrow", proxy("http://localhost:5005"))
 
 
 app.listen(port,()=>{

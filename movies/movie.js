@@ -29,8 +29,11 @@ app.post("/movie/add", (req,res)=>{
         format: req.body.format
     },
     (err, ok)=>{
-        if(err)throw err;
-        return res.send("Movie added")
+        if(err){
+            res.send("Error, input movie name and format")
+        }else{
+            return res.send("Movie added")
+        }
     })
     
 })

@@ -28,8 +28,11 @@ app.post("/game/add", (req,res)=>{
         platform: req.body.platform
     },
     (err, ok)=>{
-        if(err)throw err;
-        return res.send("Game added")
+        if(err){
+            res.send("Error, input game name and platform")
+        }else{
+            return res.send("Game added")
+        }
     })
     
 })

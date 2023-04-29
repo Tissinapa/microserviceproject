@@ -27,8 +27,11 @@ app.post("/borrow/movie", (req,res)=>{
         name: req.body.name
     },
     (err, ok)=>{
-        if(err)throw err;
-        return res.json("Movie borrowed")
+        if(err){
+            res.send("Error, input movie name")
+        }else{
+            return res.send("Movie borrowed")
+        }
     })
     
 })
@@ -37,8 +40,11 @@ app.post("/borrow/game", (req,res)=>{
         name: req.body.name
     },
     (err, ok)=>{
-        if(err)throw err;
-        return res.json("Game borrowed")
+        if(err){
+            res.send("Error, input game name")
+        }else{
+            return res.send("Game borrowed")
+        }
     })
     
 })
