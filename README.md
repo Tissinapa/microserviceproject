@@ -23,7 +23,7 @@ In each terminal open one sub folder
 
 **cd games && npm run dev**
 
-**cd hardware && npm run dev**
+**cd hardwares && npm run dev**
  
 **cd lists && npm run dev**
 
