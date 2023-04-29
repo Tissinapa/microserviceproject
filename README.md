@@ -35,5 +35,10 @@ add this command in terminal in each sub folder
 
 **npm i mongodb mongoose@6.10.0 express body-parser express-http-proxy http-proxy-middleware nodemon axios**
 
+### =========== separate file for postman commands =========== ###
+
+project_postman_commands.txt
+
+
 
 
