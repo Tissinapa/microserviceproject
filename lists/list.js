@@ -41,7 +41,7 @@ app.get("/list/allmovies", (req,res)=>{
 
 }) 
 app.get("/list/allgames",(req,res)=>{
-    axios.get("http://localhost:5004/games/all",
+    axios.get("http://localhost:5004/game/all",
     ).then((response)=>{
         res.json(response.data)
     })

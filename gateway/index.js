@@ -15,6 +15,7 @@ app.use("/hardware", proxy("http://localhost:5003"))
 app.use("/game", proxy("http://localhost:5004"))
 app.use("/borrow", proxy("http://localhost:5005"))
 
+//http://localhost:5000/movie
 
 app.listen(port,()=>{
     console.log("getaway listening port:"+port)
