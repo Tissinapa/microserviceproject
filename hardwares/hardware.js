@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/hardware", (req, res)=>{
     res.send("Hardware")
 }) 
+//Adds new hardware to databse
 app.post("/hardware/add", (req,res)=>{
     Hardware.create({
         device: req.body.device

@@ -23,7 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/movie", (req, res)=>{
     res.send("Movies")
 }) 
+
+//Adds new movie to databse
 app.post("/movie/add", (req,res)=>{
+
     Movie.create({
         name: req.body.name,
         format: req.body.format
@@ -37,8 +40,9 @@ app.post("/movie/add", (req,res)=>{
     })
     
 })
+
 app.get("/movie/all", (req,res)=>{
-    
+    //Finds everything in database
     Movie.find((err,data)=>{
         if(err){
             console.log(err)

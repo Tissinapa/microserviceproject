@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/game", (req, res)=>{
     res.send("Games")
 }) 
+//Adds new game to databse
 app.post("/game/add", (req,res)=>{
     
     Game.create({

@@ -5,14 +5,9 @@ const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const axios = require("axios")
 const Movie = require("../movies/models/Movie.js")
-
 const Game = require("../games/models/Game")
-
-
 mongoose.set('strictQuery', true) 
-
 const movieDB = "mongodb://localhost:27017/movieservice"
-//const gameDB = "mongodb://localhost:27017/gameservice"
 mongoose.createConnection(movieDB)
 
 
@@ -28,6 +23,8 @@ app.get("/list", (req, res)=>{
     res.send("You have nice collection")
     console.log("hello list")
 })
+
+//Connects to movieservice and prints data from that database
 app.get("/list/allmovies", (req,res)=>{
     axios.get("http://localhost:5001/movie/all",
     ).then((response)=>{
@@ -40,6 +37,7 @@ app.get("/list/allmovies", (req,res)=>{
     })
 
 }) 
+//Connects to gameservice and prints data from that database
 app.get("/list/allgames",(req,res)=>{
     axios.get("http://localhost:5004/game/all",
     ).then((response)=>{

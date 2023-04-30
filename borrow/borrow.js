@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/borrow", (req, res)=>{
     res.send("borrow")
-}) 
+})
+//add new data to borrowmovie 
 app.post("/borrow/movie", (req,res)=>{
     BorrowMovie.create({
         name: req.body.name
@@ -35,6 +36,7 @@ app.post("/borrow/movie", (req,res)=>{
     })
     
 })
+//add new data to borrowgame
 app.post("/borrow/game", (req,res)=>{
     BorrowGame.create({
         name: req.body.name
@@ -48,6 +50,7 @@ app.post("/borrow/game", (req,res)=>{
     })
     
 })
+//Finds movie that you have borrowed and then removes it from database
 app.post("/borrow/return/movie", (req,res)=>{
     BorrowMovie.findOneAndRemove({name: req.body.name},(err, data)=>{
         if(err || !data){
@@ -59,6 +62,7 @@ app.post("/borrow/return/movie", (req,res)=>{
     })
     
 })
+//Finds game that you have borrowed and then removes it from database
 app.post("/borrow/return/game", (req,res)=>{
     BorrowGame.findOneAndDelete({name: req.body.name},(err, data)=>{
         if(err || !data){
@@ -70,6 +74,7 @@ app.post("/borrow/return/game", (req,res)=>{
     })
     
 })
+//Get data from borrowmovies database
 app.get("/borrow/allmovies", (req,res)=>{
     
     BorrowMovie.find((err,data)=>{
@@ -83,6 +88,7 @@ app.get("/borrow/allmovies", (req,res)=>{
     })
 
 })
+//Get data from borrowgames database
 app.get("/borrow/allgames", (req,res)=>{
     
     BorrowGame.find((err,data)=>{
